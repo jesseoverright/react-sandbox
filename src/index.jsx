@@ -1,47 +1,47 @@
 var React = require('react');
 
-var TextInput = React.createClass({
-    handleChange: function(e) {
-        var name = e.target.value;
-        //console.log(name);
-        this.props.handleChange(name);
-    },
-    render: function() {
-        return (
-            <div className="form-group">
-                <input
-                    type="text"
-                    className="form-control"
-                    onChange={this.handleChange}
-                    value={this.props.value}
-                    placeholder="Your name"
-                />
-            </div>
-        );
-    }
-});
+var InputForm = require('./InputForm.jsx');
+var DataTable = require('./DataTable.jsx');
 
 var App = React.createClass({
     getInitialState: function() {
         return {
-            value: ""
+            name: "",
+            data: []
         };
     },
-    handleChange: function (name) {
-        this.setState({value:name});
+    handleInputChange: function (value) {
+        this.setState({
+            name:value
+        });
+    },
+    handleSubmit: function (value) {
+        this.setState({
+            data: this.state.data.concat(value)
+        });
     },
 	render: function() {
 		return (
 		    <div className="container">
+                <div className="row">
+                    <div className="col-md-10 col-md-offset-1">
+                        <h2>Hello, {this.state.name}</h2>
+                    </div>
+                </div>
 		        <div className="row">
 		            <div className="col-md-8 col-md-offset-2">
-		                <h2>Hello, {this.state.value}</h2>
-		                <TextInput
-                            handleChange={this.handleChange}
-                            value={this.state.value}
+                        <InputForm
+                            handleInputChange={this.handleInputChange}
+                            handleSubmit={this.handleSubmit}
+                            value={this.state.name}
                         />
 		            </div>
 		        </div>
+                <div className="row">
+                    <div className="col-md-8 col-md-offset-2">
+                        <DataTable data={this.state.data} />
+                    </div>
+                </div>
 		    </div>
 		);
 	}

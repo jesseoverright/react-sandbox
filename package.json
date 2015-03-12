@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "browserify src/index.jsx | uglifyjs -c -o public/js/main.min.js",
-    "watch": "watchify src/index.jsx | uglifyjs -c -o public/js/main.min.js",
+    "watch": "watchify src/index.jsx -o public/js/main.js",
     "start": "node index.js"
   },
   "author": "Jesse Overright",
