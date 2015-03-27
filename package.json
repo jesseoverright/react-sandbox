@@ -1,7 +1,7 @@
 {
-  "name": "sandbox",
+  "name": "react sandbox",
   "version": "0.1.0",
-  "description": "sandbox react ui",
+  "description": "react sandbox ui",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"

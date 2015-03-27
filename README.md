@@ -1,4 +1,4 @@
-# Node Sandbox
+# React Sandbox
 
 Sandbox app using
 
