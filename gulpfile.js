@@ -1,5 +1,8 @@
 var gulp = require('gulp');
-
+var browserify = require('browserify');
+var reactify = require('reactify');
+var rename = require('gulp-rename');
+var source = require("vinyl-source-stream");
 var uglify = require('gulp-uglify');
 
 gulp.task('deploy-bower', function() {
@@ -17,6 +20,14 @@ gulp.task('deploy-bower', function() {
 
 });
 
-gulp.task('default', function() {
-  // place code for your default task here
+gulp.task('browserify', function() {
+    var b = browserify();
+    b.transform(reactify);
+    b.add('./src/index.jsx');
+
+    return b.bundle()
+        .pipe(source('./src/index.jsx'))
+        .pipe(rename('bundle.js'))
+        .pipe(gulp.dest('./dist/js'));
+
 });
