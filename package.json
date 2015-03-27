@@ -4,7 +4,6 @@
   "description": "sandbox react ui",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "browserify src/index.jsx | uglifyjs -c -o public/js/bundle.min.js",
     "watch": "watchify src/index.jsx -o public/js/bundle.js",
     "start": "node index.js"
@@ -12,11 +11,13 @@
   "author": "Jesse Overright",
   "license": "Apache 2",
   "dependencies": {
-    "node-static": "^0.7.6",
-    "react": "^0.12.2"
+    "node-static": "^0.7.6"
   },
   "devDependencies": {
     "browserify": "^9.0.3",
+    "gulp": "^3.8.11",
+    "gulp-uglify": "^1.1.0",
+    "react": "^0.12.2",
     "reactify": "^1.0.0",
     "uglify-js": "^2.4.17",
     "watchify": "^2.4.0"
