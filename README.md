@@ -9,3 +9,7 @@ Sandbox app using
 - gulp
 - bootstrap
 - jquery
+
+# Run
+
+    $ npm start
