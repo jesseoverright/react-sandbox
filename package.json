@@ -4,8 +4,6 @@
   "description": "sandbox react ui",
   "main": "index.js",
   "scripts": {
-    "build": "browserify src/index.jsx | uglifyjs -c -o public/js/bundle.min.js",
-    "watch": "watchify src/index.jsx -o public/js/bundle.js",
     "start": "node index.js"
   },
   "author": "Jesse Overright",
@@ -23,10 +21,5 @@
     "uglify-js": "^2.4.17",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^2.4.0"
-  },
-  "browserify": {
-    "transform": [
-      "reactify"
-    ]
   }
 }
